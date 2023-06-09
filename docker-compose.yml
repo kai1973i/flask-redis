@@ -1,0 +1,7 @@
+services:
+  build:
+    image: docker:latest
+    command: sh -c "docker build -t flaskredis ./app"
+    volumes:
+      - .:/app
+    working_dir: /app
