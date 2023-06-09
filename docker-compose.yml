@@ -1,12 +1,10 @@
 services:
   flask:
-    build: ./app
-    command: python app.py
-    ports:
-      - "5000:5000"
-    volumes:
-      - .:/app
-    environment:
-      - FLASK_ENV=development
-      - FLASK_DEBUG=1
+    context: ./app
+    target: builder
+  stop_signal: SIGINT
+  environment:
+    - FLASK_APP=app.py
+    - FLASK_ENV=development
+    - FLASK_DEBUG=1
 
